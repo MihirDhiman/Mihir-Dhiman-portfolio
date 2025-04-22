@@ -19,11 +19,11 @@ const Navbar = () => {
   }, [])
 
   const navItems = [
-    { name: "HOME", href: "home" },
-    { name: "ABOUT", href: "about" },
-    { name: "PROJECTS", href: "projects" },
-    { name: "RESUME", href: "resume" },
-    { name: "CONTACT", href: "contact" },
+    { name: "HOME", href: "#home" },
+    { name: "ABOUT", href: "#about" },
+    { name: "PROJECTS", href: "#projects" },
+    { name: "RESUME", href: "#resume" },
+    { name: "CONTACT", href: "#contact" },
   ]
 
   const handleNavigationClick = (index) => {
