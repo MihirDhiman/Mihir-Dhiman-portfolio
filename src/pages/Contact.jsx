@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -13,9 +14,12 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Create mailto link
+    const mailtoLink = `mailto:mihirdhiman@gmail.com?subject=Message from ${form.name}&body=Name: ${form.name}%0AEmail: ${form.email}%0AMessage: ${form.message}`;
+    
     // Simulating form submission
     setTimeout(() => {
-      // Replace this with EmailJS / Formspree call
+      window.location.href = mailtoLink; // This will open the default email client
       setIsSubmitting(false);
       setIsSubmitted(true);
       setForm({ name: "", email: "", message: "" });
@@ -41,9 +45,15 @@ const Contact = () => {
     }
   };
 
+  
+
   return (
+    
     <section id="contact" className="bg-black text-white py-20 px-6 md:px-20 relative">
-      {/* Animated background elements */}
+      <AnimatedBackground />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+          {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
           <defs>
@@ -329,6 +339,7 @@ const Contact = () => {
           }
         }
       `}</style>
+      </div>
     </section>
   );
 };
