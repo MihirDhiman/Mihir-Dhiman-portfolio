@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import projects from "../data/projects";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 // Enhanced Project Card Component
 const ProjectCard = ({ title, description, technologies, image, demoLink, codeLink }) => {
@@ -75,7 +76,10 @@ const ProjectCard = ({ title, description, technologies, image, demoLink, codeLi
 const Projects = () => {
   return (
     <section id="projects" className="bg-black text-white py-20 px-6 md:px-20 relative">
-      {/* Tech circuit background pattern */}
+      <AnimatedBackground />
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Tech circuit background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000">
           <path d="M0,0 L2000,0 L2000,1000 L0,1000 Z" fill="none" stroke="rgba(0, 255, 255, 0.5)" strokeWidth="1"></path>
@@ -104,6 +108,7 @@ const Projects = () => {
             ))}
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

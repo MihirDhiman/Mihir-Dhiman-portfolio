@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <section id="home" className="h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white flex items-center justify-center relative overflow-hidden">
-      {/* Background grid animation */}
-      <div className="absolute inset-0 z-0">
+    <section id="home" className="h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white flex items-center justify-center relative overflow-hidden mb-0">
+      {/* Background grid animation - modified to prevent bleed */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0" style={{ 
           background: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0, 255, 255, 0.1) 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 100%)",
           backgroundSize: "200% 100%",
@@ -18,7 +18,7 @@ const Home = () => {
       </div>
       
       <div className="text-center px-4 z-10">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -101,7 +101,6 @@ const Home = () => {
         </motion.div>
       </div>
       
-      {/* Add this to your global CSS */}
       <style jsx>{`
         @keyframes scanLine {
           0% { background-position: 200% 0; }

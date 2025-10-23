@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
 import timeline from "../data/timeline";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 const About = () => {
   return (
     <section id="about" className="bg-black text-white py-20 px-6 md:px-20 relative">
-      {/* Tech pattern background */}
+      <AnimatedBackground />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+        {/* Tech pattern background */}
       <div className="absolute inset-0 overflow-hidden opacity-5">
         <div className="absolute top-0 left-0 w-full h-full">
           {Array(200).fill().map((_, i) => (
@@ -76,12 +80,13 @@ const About = () => {
                 <div className="bg-gray-900/50 backdrop-blur-sm p-5 rounded-lg border border-gray-800 hover:border-teal-500/50 transition duration-300">
                   <p className="text-teal-400 text-sm font-medium mb-1">{item.year}</p>
                   <h4 className="text-lg font-semibold text-white mb-2">{item.title}</h4>
-                  <p className="text-gray-400">{item.description}</p>
+                  {/* <p className="text-gray-400">{item.description}</p> */}
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

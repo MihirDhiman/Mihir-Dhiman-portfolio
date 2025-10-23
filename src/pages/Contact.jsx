@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -13,9 +14,12 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Create mailto link
+    const mailtoLink = `mailto:mihirdhiman@gmail.com?subject=Message from ${form.name}&body=Name: ${form.name}%0AEmail: ${form.email}%0AMessage: ${form.message}`;
+    
     // Simulating form submission
     setTimeout(() => {
-      // Replace this with EmailJS / Formspree call
+      window.location.href = mailtoLink; // This will open the default email client
       setIsSubmitting(false);
       setIsSubmitted(true);
       setForm({ name: "", email: "", message: "" });
@@ -41,9 +45,15 @@ const Contact = () => {
     }
   };
 
+  
+
   return (
+    
     <section id="contact" className="bg-black text-white py-20 px-6 md:px-20 relative">
-      {/* Animated background elements */}
+      <AnimatedBackground />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+          {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
           <defs>
@@ -266,16 +276,11 @@ const Contact = () => {
                 <h3 className="text-xl font-semibold text-white mb-2">Quick Response</h3>
                 <p className="text-gray-400 text-sm mb-4">I typically respond within 24-48 hours</p>
                 <div className="flex space-x-3">
-                  <a 
-                    href="https://twitter.com/MihirDhiman"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-blue-500/20 w-10 h-10 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition duration-300"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
-                  </a>
+                <a href="https://www.instagram.com/mihhirrrrrrrrr" target="_blank" rel="noopener noreferrer">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6 text-pink-500 hover:text-pink-400 transition">
+    <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zM4.5 7.75a3.25 3.25 0 013.25-3.25h8.5a3.25 3.25 0 013.25 3.25v8.5a3.25 3.25 0 01-3.25 3.25h-8.5a3.25 3.25 0 01-3.25-3.25v-8.5zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.25-.75a.75.75 0 110 1.5.75.75 0 010-1.5z" />
+  </svg>
+</a>
                 </div>
               </div>
             </div>
@@ -334,6 +339,7 @@ const Contact = () => {
           }
         }
       `}</style>
+      </div>
     </section>
   );
 };
